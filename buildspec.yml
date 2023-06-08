@@ -15,13 +15,13 @@ phases:
       - echo Build started on `date`
       - cd sso-error-logs-utility
       - echo Building the Docker image...
-      - docker build -t 350516943350.dkr.ecr.us-east-1.amazonaws.com/docker-logs .
-      - docker tag 350516943350.dkr.ecr.us-east-1.amazonaws.com/docker-logs:latest 350516943350.dkr.ecr.us-east-1.amazonaws.com/docker-logs:$IMAGE_TAG
+      - docker build -t 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp .
+      - docker tag 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp:latest 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 350516943350.dkr.ecr.us-east-1.amazonaws.com/docker-logs:$IMAGE_TAG
+      - docker push 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp:$IMAGE_TAG
       - echo Writing image definitions file...
       - printf '[{"name":"nodeapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
