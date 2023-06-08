@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - cd sso-error-logs-utility
+      #- cd sso-error-logs-utility
       - echo Building the Docker image...
       - docker build -t 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp .
       - docker tag 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp:latest 350516943350.dkr.ecr.us-east-1.amazonaws.com/javaapp:$IMAGE_TAG
